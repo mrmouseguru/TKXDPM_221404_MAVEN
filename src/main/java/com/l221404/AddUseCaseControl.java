@@ -1,13 +1,14 @@
 
 package com.l221404;
-public class AddUseCaseControl {
+public class AddUseCaseControl implements InputBoundary {
     //fields
     AddEntity addEntity = null;
-    AddUIConsoleOutput addUIConsoleOutput = null;
+    //AddUIConsoleOutput addUIConsoleOutput = null;
+    private OutputBoundary addUIConsoleOutput = null;
     ResponseData responseData = null;
     AddUseCaseControl(){
         addEntity = new AddEntity();
-        addUIConsoleOutput = new AddUIConsoleOutput();
+        //addUIConsoleOutput = new AddUIConsoleOutput();
         responseData = new ResponseData();
     }
 
@@ -23,14 +24,17 @@ public class AddUseCaseControl {
        int ketQua =  this.addEntity.add();
             responseData.result = ketQua;
 
-           // addUIConsoleOutput.output(responseData);
+            addUIConsoleOutput.showResult(responseData);
 
         }else{
             //khong hợp lệ
-            
-            responseData.error = "KHONG_HOP_LE";
-            responseData.strNumber1 = requestData.strNumber1;
-            responseData.strNumber2 = requestData.strNumber2;
+            ResponseError error = new ResponseError();
+            error.content = "KHONG_HOP_LE";
+            //responseData.error = "KHONG_HOP_LE";
+            //responseData.strNumber1 = requestData.strNumber1;
+            //responseData.strNumber2 = requestData.strNumber2;
+            addUIConsoleOutput.showError(error);
+
             
             //6
            // addUIConsoleOutput.output(responseData);
@@ -39,7 +43,6 @@ public class AddUseCaseControl {
         //hợp lệ - gửi meessage đến Entity
         //addEntity.add();
         //không hợp lệ
-        addUIConsoleOutput.output(responseData);
         
     }
 
@@ -53,6 +56,10 @@ public class AddUseCaseControl {
         } catch (NumberFormatException e) {
             return false; // nếu có lỗi NumberFormatException thì không phải số nguyên
         }
+    }
+
+    public void setAddUIConsoleOutput(OutputBoundary addUIConsoleOutput) {
+        this.addUIConsoleOutput = addUIConsoleOutput;
     }
 
 

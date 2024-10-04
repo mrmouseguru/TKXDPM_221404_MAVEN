@@ -12,7 +12,8 @@ public class AddUIConsoleInput {
     //fields
     PrintWriter stdOut = null;
     BufferedReader stdIn = null;
-    AddUseCaseControl addUseCaseControl = null;
+    //AddUseCaseControl addUseCaseControl = null;
+    InputBoundary addUseCaseControl = null;
 
     //methods
     AddUIConsoleInput(){
