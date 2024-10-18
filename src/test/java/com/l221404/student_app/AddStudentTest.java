@@ -10,7 +10,6 @@ import org.junit.Test;
 import com.l221404.student_app.database.AddStudentDAOMemory;
 import com.l221404.student_app.database.DatabaseMemory;
 import com.l221404.student_app.ui.add_student.AddStudentPresenter;
-import com.l221404.student_app.usecase.add_student.AddStudentDatabaseBoundary;
 import com.l221404.student_app.usecase.add_student.AddStudentInputBoundary;
 import com.l221404.student_app.usecase.add_student.AddStudentInputDTO;
 import com.l221404.student_app.usecase.add_student.AddStudentOutputDTO;
