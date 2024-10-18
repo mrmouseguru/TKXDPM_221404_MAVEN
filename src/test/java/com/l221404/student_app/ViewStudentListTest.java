@@ -16,6 +16,7 @@ import com.l221404.student_app.entity.Student;
 import com.l221404.student_app.ui.ViewStudentListPresenter;
 import com.l221404.student_app.usecase.ViewStudentListInputBoundary;
 import com.l221404.student_app.usecase.ViewStudentListUseCase;
+import com.l221404.student_app.usecase.ViewStudentOutputDTO;
 
 public class ViewStudentListTest {
 
@@ -29,10 +30,10 @@ public class ViewStudentListTest {
 
         vSLUseCase.execute();
 
-        String message = presenter.getResponseStudentList().getMessage();
-        List<Student> listStudent = presenter.getResponseStudentList().getList();
-        assertEquals("GET_LIST_OK", message);
-        assertEquals(4, listStudent.size());
+        List<ViewStudentOutputDTO> listOutDTO = presenter
+        .getListOutputDTO();
+
+        assertEquals(4, listOutDTO.size());
         
     }
 

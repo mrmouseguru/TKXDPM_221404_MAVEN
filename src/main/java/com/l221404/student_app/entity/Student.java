@@ -40,4 +40,12 @@ public abstract class Student {
     public String getNganh() {
         return nganh;
     }
+
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    public Date getNgaySinh() {
+        return ngaySinh;
+    }
 }

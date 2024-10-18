@@ -1,21 +1,24 @@
 package com.l221404.student_app.ui;
 
-import com.l221404.student_app.usecase.ResponseData;
-import com.l221404.student_app.usecase.ResponseStudentList;
+import java.util.List;
+
 import com.l221404.student_app.usecase.ViewStudentListOutputBoundary;
+import com.l221404.student_app.usecase.ViewStudentOutputDTO;
 
 public class ViewStudentListPresenter implements ViewStudentListOutputBoundary{
 
-    private ResponseStudentList responseStudentList = null;
-    @Override
-    public void exportData(ResponseData resData) {
+    private List<ViewStudentOutputDTO> listOutputDTO = null;
+   
 
-        responseStudentList = (ResponseStudentList)resData;
+    @Override
+    public void present(List<ViewStudentOutputDTO> listOutputDTO) {
+
+        this.listOutputDTO = listOutputDTO;
         
     }
 
-    public ResponseStudentList getResponseStudentList() {
-        return responseStudentList;
+    public List<ViewStudentOutputDTO> getListOutputDTO() {
+        return listOutputDTO;
     }
 
 }
