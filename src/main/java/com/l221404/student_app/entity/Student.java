@@ -3,6 +3,7 @@ package com.l221404.student_app.entity;
 import java.util.Date;
 
 public abstract class Student {
+    protected int maSV;
     protected String hoTen;
     protected String nganh;
     protected Date ngaySinh;
@@ -47,5 +48,9 @@ public abstract class Student {
 
     public Date getNgaySinh() {
         return ngaySinh;
+    }
+
+    public int getMaSV() {
+        return maSV;
     }
 }
