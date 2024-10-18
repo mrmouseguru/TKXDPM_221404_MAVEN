@@ -14,6 +14,10 @@ public class ViewStudentListPresenter implements ViewStudentListOutputBoundary{
     public void present(List<ViewStudentOutputDTO> listOutputDTO) {
 
         this.listOutputDTO = listOutputDTO;
+
+        //ViewStudentForm
+        ViewStudentListForm form = new ViewStudentListForm();
+        form.createAndShowGUI(listOutputDTO);
         
     }
 

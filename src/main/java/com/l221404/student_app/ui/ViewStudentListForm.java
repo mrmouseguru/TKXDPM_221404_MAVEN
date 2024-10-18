@@ -3,18 +3,15 @@ package com.l221404.student_app.ui;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-import com.l221404.student_app.entity.KinhTeStudent;
-import com.l221404.student_app.entity.PhanMemStudent;
-import com.l221404.student_app.entity.Student;
+import com.l221404.student_app.usecase.ViewStudentOutputDTO;
 
 import java.awt.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ViewStudentListForm {
 
-    private  void createAndShowGUI(List<Student> students) {
+    public  void createAndShowGUI(List<ViewStudentOutputDTO> students) {
         JFrame frame = new JFrame("Student Management");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900, 500);
@@ -39,13 +36,13 @@ public class ViewStudentListForm {
 
         // Add student data to the table
         for (int i = 0; i < students.size(); i++) {
-            Student student = students.get(i);
+            ViewStudentOutputDTO student = students.get(i);
             Object[] row = {
                     i + 1,
                     student.getHoTen(),
                     student.getDiaChi(),
                     sdf.format(student.getNgaySinh()),
-                    student.tinhDiemTB(),
+                    student.getDiemTB(),
                     student.getHocLuc(),
                     student.getNganh()
             };
@@ -65,29 +62,7 @@ public class ViewStudentListForm {
         frame.setVisible(true);
     }
 
-    public void updateTable(){
-        
-    }
-    // Create some sample data
-    private static List<Student> getStudentList() {
-        List<Student> students = new ArrayList<>();
-        try {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            students.add(new PhanMemStudent("Nguyen Van A", sdf.parse("10/10/2003"), "HCM", 5, 5, 5));
-            students.add(new KinhTeStudent("Nguyen Van B", sdf.parse("09/09/2000"), "HN", 6, 6));
-            students.add(new PhanMemStudent("Nguyen Thi C", sdf.parse("08/08/2001"), "DN", 8, 8, 8));
-            students.add(new KinhTeStudent("Tran Van Mít", sdf.parse("01/01/2002"), "YB", 9, 9));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return students;
-    }
-
-    public static void main(String[] args) {
-        ViewStudentListForm form = new ViewStudentListForm();
-        form.createAndShowGUI(getStudentList());
-    }
-
+   
 
 
     
